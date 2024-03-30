@@ -75,20 +75,26 @@ local plugins = {
   'Exafunction/codeium.vim',
   event = 'BufEnter'
   },
-      {
-        "vhyrro/luarocks.nvim",
-        priority = 1000, -- We'd like this plugin to load first out of the rest
-        config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000, -- We'd like this plugin to load first out of the rest
+    lazy = false,
+    config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+  },
+  {
+    "nvim-neorg/neorg",
+    dependencies = { "luarocks.nvim" },
+    opts = {
+      load = {
+        ["core.defaults"] = {},
+      }
     },
-    {
-        "nvim-neorg/neorg",
-        dependencies = { "luarocks.nvim" },
-        -- put any other flags you wanted to pass to lazy here!
-        config = function()
-            require("neorg").setup({
-                 -- put any of your previous config here
-            })
-        end,
-    }
+    -- put any other flags you wanted to pass to lazy here!
+    config = function()
+      require("neorg").setup({
+        -- put any of your previous config here
+      })
+    end,
+  }
 }
 return plugins
