@@ -84,6 +84,8 @@ local plugins = {
   {
     "nvim-neorg/neorg",
     dependencies = { "luarocks.nvim" },
+    build = ":Neorg sync-parsers",
+    ft = "norg",
     opts = {
       load = {
         ["core.defaults"] = {},
