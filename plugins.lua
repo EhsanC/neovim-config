@@ -90,13 +90,20 @@ local plugins = {
       require("neorg").setup({
         load = {
           ["core.defaults"] = {},
+          ["core.autocommands"] = {},
+          ["core.integrations.treesitter"] = {},
           ["core.keybinds"] = {},
           ["core.export"] = {},
-          ["core.concealer"] = {},
+          ["core.concealer"] = {
+            config = {
+              icon_preset = "diamond",
+            }
+          },
+
           ["core.dirman"] = {
             config = {
               workspaces = {
-                notes = "~/notes",
+                notes = "~/Documents/notes",
               }
             }
           }
