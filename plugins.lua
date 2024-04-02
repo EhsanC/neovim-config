@@ -83,18 +83,24 @@ local plugins = {
   },
   {
     "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
+    dependencies = { "luarocks.nvim", "plenary.nvim", "telescope.nvim" },
+    lazy = false,
     build = ":Neorg sync-parsers",
-    ft = "norg",
-    opts = {
-      load = {
-        ["core.defaults"] = {},
-      }
-    },
-    -- put any other flags you wanted to pass to lazy here!
     config = function()
       require("neorg").setup({
-        -- put any of your previous config here
+        load = {
+          ["core.defaults"] = {},
+          ["core.keybinds"] = {},
+          ["core.export"] = {},
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              }
+            }
+          }
+        }
       })
     end,
   }
