@@ -107,7 +107,7 @@ local plugins = {
           ["core.dirman"] = {
             config = {
               workspaces = {
-                notes = "~/Documents/notes",
+                notes = "~/Documents/notes", --test line 
               }
             }
           }
