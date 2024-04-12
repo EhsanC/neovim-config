@@ -89,7 +89,7 @@ local plugins = {
     "nvim-neorg/neorg",
     dependencies = { "luarocks.nvim", "plenary.nvim", "telescope.nvim" },
     lazy = false,
-    build = ":Neorg sync-parsers",
+    --build = ":Neorg sync-parsers",
     config = function()
       require("neorg").setup({
         load = {
