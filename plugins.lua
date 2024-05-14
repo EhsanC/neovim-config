@@ -56,9 +56,19 @@ local plugins = {
         "mypy",
         "ruff-lsp",
         "pyright",
+        "lua-language-server",
       },
     },
   },
+
+{
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+},
+
+
+
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -80,13 +90,6 @@ local plugins = {
   event = 'BufEnter'
   },
   {
-    "vhyrro/luarocks.nvim",
-    priority = 1000, -- We'd like this plugin to load first out of the rest
-    lazy = false,
-    config = true, -- This automatically runs `require("luarocks-nvim").setup()`
-  },
-
-  {
     "lervag/vimtex",
     lazy = false,     -- we don't want to lazy load VimTeX
     -- tag = "v2.15", -- uncomment to pin to a specific release
@@ -94,7 +97,6 @@ local plugins = {
       -- VimTeX configuration goes here
     end
   },
-
   {
     "nvim-neorg/neorg",
     dependencies = { "luarocks.nvim", "plenary.nvim", "telescope.nvim" },
